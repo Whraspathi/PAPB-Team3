@@ -9,7 +9,6 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 
 class HomeFragment : Fragment() {
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.fragment_home, container, false)
         val clickBtn1 = v.findViewById<View>(R.id.button1) as CardView

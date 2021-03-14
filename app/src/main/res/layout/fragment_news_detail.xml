@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsDetailFragment">
+
+    <ImageView
+        android:id="@+id/ivNewsDetailPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="News Photo"
+        android:src="@drawable/news_thumbnail"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNewsDetailTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Judul Berita"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivNewsDetailPhoto" />
+
+    <TextView
+        android:id="@+id/tvNewsDetailAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Penulis: Nama Lengkap"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewsDetailTitle" />
+
+    <TextView
+        android:id="@+id/tvNewsDetailContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNewsDetailAuthor"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo non mi nec faucibus. Vivamus viverra feugiat metus. Sed placerat metus in maximus facilisis.In finibus, quam ut tristique euismod, ex lorem sollicitudin ligula, ut placerat massa purus vel mauris. Aenean imperdiet urna nisl, non convallis nisi auctor vel. Suspendisse mattis, magna nec hendrerit consectetur, quam mi ultricies orci, nec mollis est neque a neque. Cras porttitor ligula vel pulvinar vehicula. Nullam sollicitudin tincidunt justo, vel sodales leo scelerisque ac. Maecenas justo nisi, rhoncus at justo sit amet, pharetra imperdiet nisl. Aenean sapien purus, sodales ut tristique sed, tincidunt eu diam. Maecenas tincidunt ut est nec vulputate. Nunc sodales velit nec mollis vehicula. Maecenas laoreet, elit rutrum varius euismod, libero nisl interdum elit, quis pulvinar nisl massa nec metus. Curabitur sem mauris, pretium quis tincidunt et, sollicitudin nec dolor. " />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
