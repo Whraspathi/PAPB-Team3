@@ -30,6 +30,6 @@ class NewsFragment : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        Toast.makeText(activity, "Berita Diperbaharui", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "This is the newest News", Toast.LENGTH_LONG).show()
     }
 }
