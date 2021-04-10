@@ -103,7 +103,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Ini kontennya"
                 android:textSize="14sp"
-                android:textColor="@color/black"
+                android:textColor="@color/teal_200"
                 app:layout_constraintStart_toEndOf="@id/iv_thumbnail2"
                 app:layout_constraintTop_toBottomOf="@id/txt_judul2"/>
         </androidx.constraintlayout.widget.ConstraintLayout>

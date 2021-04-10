@@ -1,6 +1,9 @@
 package com.project.kumber
 
+import android.app.Activity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.annotation.ContentView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
