@@ -1,10 +1,9 @@
-package com.project.kumber
+package com.project.kumber.ui
 
-import android.app.Activity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.annotation.ContentView
 import androidx.appcompat.app.AppCompatActivity
+import com.project.kumber.ui.fragment.HomeFragment
+import com.project.kumber.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
