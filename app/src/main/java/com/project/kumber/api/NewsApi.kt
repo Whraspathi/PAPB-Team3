@@ -36,4 +36,3 @@ interface NewsApi {
             apiKey: String = "8fde604cd9734b1b955c234ee733f3a2"
     ): Response<NewsResponse>
 }
-}

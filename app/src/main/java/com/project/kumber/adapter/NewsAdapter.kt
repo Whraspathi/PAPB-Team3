@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.project.kumber.R
 import com.project.kumber.model.Article
-import kotlinx.android.synthetic.main.item_article_preview.view.*
+import kotlinx.android.synthetic.main.item_newslist.view.*
 
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
@@ -30,8 +30,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                        //R.layout.item_article_preview,
-                        //layoutnya tinggal disesuain namanya
+                        R.layout.item_newslist,
                         parent,
                         false
                 )
@@ -47,11 +46,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
-            //Glide.with(this).load(article.urlToImage).into(ivArticleImage)
-            //tvSource.text = article.source?.name
-            //tvTitle.text = article.title
-            //tvDescription.text = article.description
-            //tvPublishedAt.text = article.publishedAt
+            Glide.with(this).load(article.urlToImage).into(ivThumbnail)
+            txtTitle.text = article.title
+            txtContent.text = article.description
 
             setOnClickListener {
                 onItemClickListener?.let { it(article) }

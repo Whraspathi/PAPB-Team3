@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_nav_graph"
+    app:startDestination="@id/newsDetailFragment">
+
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.project.kumber.ui.fragment.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.project.kumber.ui.fragment.NewsFragment"
+        android:label="NewsFragment" >
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedNewsFragment"
+        android:name="com.project.kumber.ui.fragment.SavedNewsFragment"
+        android:label="SavedNewsFragment" >
+        <action
+            android:id="@+id/action_savedNewsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+</navigation>
