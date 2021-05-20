@@ -1,11 +1,11 @@
-package com.project.kumber
+package com.project.kumber.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.kumber.Resource
 import com.project.kumber.model.NewsResponse
-import com.project.kumber.ui.fragment.NewsFragment
+import com.project.kumber.repository.NewsRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -16,9 +16,9 @@ class NewsViewModel (
     val indonesiaBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var indonesiaBreakingNewsPage = 1
 
-//    init {
-//        getIndonesiaBreakingNews("id")
-//    }
+    init {
+        getIndonesiaBreakingNews("id")
+    }
 
     fun getIndonesiaBreakingNews(countryCode: String) = viewModelScope.launch {
         indonesiaBreakingNews.postValue(Resource.Loading())

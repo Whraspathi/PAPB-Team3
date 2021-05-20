@@ -11,8 +11,8 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.androiddevs.mvvmnewsapp.adapters.NewsAdapter
-import com.project.kumber.NewsViewModel
+import com.project.kumber.adapter.NewsAdapter
+import com.project.kumber.ui.NewsViewModel
 import com.project.kumber.R
 import com.project.kumber.Resource
 import com.project.kumber.ui.MainActivity

@@ -1,4 +1,4 @@
-package com.project.kumber
+package com.project.kumber.repository
 
 import com.project.kumber.api.RetrofitInstance
 import com.project.kumber.db.ArticleDatabase

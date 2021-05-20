@@ -3,8 +3,8 @@ package com.project.kumber.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.project.kumber.NewsRepository
-import com.project.kumber.NewsViewModel
+import com.project.kumber.repository.NewsRepository
+import com.project.kumber.ui.NewsViewModel
 import com.project.kumber.ui.fragment.HomeFragment
 import com.project.kumber.R
 import com.project.kumber.db.ArticleDatabase

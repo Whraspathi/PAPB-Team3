@@ -1,4 +1,4 @@
-package com.androiddevs.mvvmnewsapp.adapters
+package com.project.kumber.adapter
 
 import android.view.LayoutInflater
 import android.view.View
