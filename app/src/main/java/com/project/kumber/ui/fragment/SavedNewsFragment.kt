@@ -7,10 +7,15 @@ import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.project.kumber.R
+import com.project.kumber.ui.MainActivity
+import com.project.kumber.ui.NewsViewModel
 
-class SavedNewsFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_saved_news, container, false)
-        return v
+class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
+
+    lateinit var viewModel: NewsViewModel
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = (activity as MainActivity).viewModel
     }
 }

@@ -37,7 +37,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button1"
+            android:id="@+id/button_idnNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -78,7 +78,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button2"
+            android:id="@+id/button_interNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -120,7 +120,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button3"
+            android:id="@+id/button_savedNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -161,7 +161,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/button4"
+            android:id="@+id/button_searchNews"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
