@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.kumber.adapter.NewsAdapter
 import com.project.kumber.ui.NewsViewModel
@@ -29,6 +30,16 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_newsFragment_to_newsDetailFragment,
+                bundle
+            )
+        }
 
         viewModel.indonesiaBreakingNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
