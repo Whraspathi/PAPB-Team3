@@ -1,50 +1,47 @@
 package com.project.kumber.ui.fragment
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import androidx.core.widget.addTextChangedListener
+import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.project.kumber.adapter.NewsAdapter
+import com.project.kumber.ui.NewsViewModel
 import com.project.kumber.R
 import com.project.kumber.Resource
-import com.project.kumber.adapter.NewsAdapter
 import com.project.kumber.ui.MainActivity
-import com.project.kumber.ui.NewsViewModel
-import kotlinx.android.synthetic.main.fragment_search_news.*
-import kotlinx.android.synthetic.main.fragment_search_news.paginationProgressBar
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.android.synthetic.main.fragment_news.*
 
-class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
+class IndonesiaNewsFragment : Fragment(R.layout.fragment_news) {
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
-    val TAG = "SearchNewsFragment"
+
+    val TAG = "IndonesiaBreakingNewsFragment"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
 
-        var job: Job? = null
-        searchBox.addTextChangedListener { editable ->
-            job?.cancel()
-            job = MainScope().launch {
-                delay(500L)
-                editable?.let {
-                    if (editable.toString().isNotEmpty()) {
-                        viewModel.searchNews(editable.toString())
-                    }
-                }
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
             }
+            findNavController().navigate(
+                R.id.action_newsFragment_to_newsDetailFragment,
+                bundle
+            )
         }
 
-        viewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
+        viewModel.indonesiaBreakingNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
@@ -68,14 +65,21 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     private fun hideProgressBar() {
         paginationProgressBar.visibility = View.INVISIBLE
     }
+
     private fun showProgressBar() {
         paginationProgressBar.visibility = View.VISIBLE
     }
+
     private fun setupRecyclerView() {
         newsAdapter = NewsAdapter()
-        search_news_recyclerview.apply {
+        news_recyclerview.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(activity, "This is the newest News", Toast.LENGTH_LONG).show()
     }
 }

@@ -6,49 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.NewsDetailFragment">
 
-        <ImageView
-            android:id="@+id/ivNewsDetailPhoto"
+        <WebView
+            android:id="@+id/webView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="News Photo"
-            android:src="@drawable/news_thumbnail"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvNewsDetailTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Judul Berita"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivNewsDetailPhoto" />
-
-        <TextView
-            android:id="@+id/tvNewsDetailAuthor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="Penulis: Nama Lengkap"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsDetailTitle" />
-
-        <TextView
-            android:id="@+id/tvNewsDetailContent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewsDetailAuthor"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo non mi nec faucibus. Vivamus viverra feugiat metus. Sed placerat metus in maximus facilisis" />
+            android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

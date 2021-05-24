@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
 import com.project.kumber.R
 import com.project.kumber.ui.MainActivity
 import com.project.kumber.ui.NewsViewModel
@@ -18,4 +19,15 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
     }
+
+/*    newsAdapter.setOnItemClickListener {
+        val bundle = Bundle().apply {
+            putSerializable("article", it)
+        }
+        findNavController().navigate(
+            R.id.action_newsFragment_to_newsDetailFragment,
+            bundle
+        )
+    }
+*/
 }

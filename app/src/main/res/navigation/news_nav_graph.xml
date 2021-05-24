@@ -9,10 +9,14 @@
         android:id="@+id/newsDetailFragment"
         android:name="com.project.kumber.ui.fragment.NewsDetailFragment"
         android:label="fragment_news_detail"
-        tools:layout="@layout/fragment_news_detail" />
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="news"
+            app:argType="com.project.kumber.model.Article" />
+    </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.project.kumber.ui.fragment.NewsFragment"
+        android:name="com.project.kumber.ui.fragment.IndonesiaNewsFragment"
         android:label="NewsFragment" >
         <action
             android:id="@+id/action_newsFragment_to_newsDetailFragment"
