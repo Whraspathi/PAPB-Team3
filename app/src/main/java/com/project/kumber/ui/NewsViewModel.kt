@@ -19,6 +19,9 @@ class NewsViewModel (
     val internasionalBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var internasionalBreakingNewsPage = 1
 
+    val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var searchNewsPage = 1
+
     init {
         getIndonesiaBreakingNews("id")
         getLuarNegeriBreakingNews("us")
@@ -26,31 +29,46 @@ class NewsViewModel (
 
     fun getIndonesiaBreakingNews(countryCode: String) = viewModelScope.launch {
         indonesiaBreakingNews.postValue(Resource.Loading())
-        val response1 = newsRepository.getIndonesiaBreakingNews(countryCode, indonesiaBreakingNewsPage)
-        indonesiaBreakingNews.postValue(handleIndonesiaBreakingNewsResponse(response1))
+        val response = newsRepository.getIndonesiaBreakingNews(countryCode, indonesiaBreakingNewsPage)
+        indonesiaBreakingNews.postValue(handleIndonesiaBreakingNewsResponse(response))
     }
 
     fun getLuarNegeriBreakingNews(countryCode: String) = viewModelScope.launch {
         internasionalBreakingNews.postValue(Resource.Loading())
-        val response2 = newsRepository.getLuarNegeriBreakingNews(countryCode, internasionalBreakingNewsPage)
-        internasionalBreakingNews.postValue(handleInternasionalBreakingNewsResponse(response2))
+        val response = newsRepository.getLuarNegeriBreakingNews(countryCode, internasionalBreakingNewsPage)
+        internasionalBreakingNews.postValue(handleInternasionalBreakingNewsResponse(response))
     }
 
-    private fun handleIndonesiaBreakingNewsResponse(response1: Response<NewsResponse>) : Resource<NewsResponse> {
-         if(response1.isSuccessful) {
-             response1.body()?.let {resultResponse ->
+    fun searchNews(searchQuery: String) = viewModelScope.launch {
+        searchNews.postValue(Resource.Loading())
+        val response = newsRepository.searchNews(searchQuery, searchNewsPage)
+        searchNews.postValue(handleSearchNewsResponse(response))
+    }
+
+    private fun handleIndonesiaBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
+         if(response.isSuccessful) {
+             response.body()?.let {resultResponse ->
                  return Resource.Success(resultResponse)
              }
          }
-        return Resource.Error(response1.message())
+        return Resource.Error(response.message())
     }
 
-    private fun handleInternasionalBreakingNewsResponse(response2: Response<NewsResponse>) : Resource<NewsResponse> {
-        if(response2.isSuccessful) {
-            response2.body()?.let {resultResponse ->
+    private fun handleInternasionalBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
+        if(response.isSuccessful) {
+            response.body()?.let {resultResponse ->
                 return Resource.Success(resultResponse)
             }
         }
-        return Resource.Error(response2.message())
+        return Resource.Error(response.message())
+    }
+
+    private fun handleSearchNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
+        if(response.isSuccessful) {
+            response.body()?.let {resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error(response.message())
     }
 }

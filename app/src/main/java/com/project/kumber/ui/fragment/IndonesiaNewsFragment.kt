@@ -76,7 +76,6 @@ class IndonesiaNewsFragment : Fragment(R.layout.fragment_news) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
-
     }
 
     override fun onResume() {
