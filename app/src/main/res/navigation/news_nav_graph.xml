@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.project.kumber.ui.fragment.NewsFragment"
+        android:name="com.project.kumber.ui.fragment.IndonesiaNewsFragment"
         android:label="NewsFragment" >
         <action
             android:id="@+id/action_newsFragment_to_newsDetailFragment"

@@ -9,4 +9,7 @@ class NewsRepository (
 {
     suspend fun getIndonesiaBreakingNews(countryCode : String, pageNumber : Int) =
         RetrofitInstance.api.getIndonesiaBreakingNews(countryCode, pageNumber)
+
+    suspend fun getLuarNegeriBreakingNews(countryCode : String, pageNumber : Int) =
+        RetrofitInstance.api.getLuarNegeriBreakingNews(countryCode, pageNumber)
 }

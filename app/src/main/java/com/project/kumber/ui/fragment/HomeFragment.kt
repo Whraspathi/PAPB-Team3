@@ -18,12 +18,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         clickBtn1.setOnClickListener{
             val frNews = fragmentManager!!.beginTransaction()
-            frNews.replace(R.id.fragment_container, NewsFragment())
+            frNews.replace(R.id.fragment_container, IndonesiaNewsFragment())
             frNews.addToBackStack(null).commit()
         }
         clickBtn2.setOnClickListener{
             val frNews = fragmentManager!!.beginTransaction()
-            frNews.replace(R.id.fragment_container, NewsFragment())
+            frNews.replace(R.id.fragment_container, InternationalNewsFragment())
             frNews.addToBackStack(null).commit()
         }
         clickBtn3.setOnClickListener{

@@ -16,22 +16,41 @@ class NewsViewModel (
     val indonesiaBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var indonesiaBreakingNewsPage = 1
 
+    val internasionalBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
+    var internasionalBreakingNewsPage = 1
+
     init {
         getIndonesiaBreakingNews("id")
+        getLuarNegeriBreakingNews("us")
     }
 
     fun getIndonesiaBreakingNews(countryCode: String) = viewModelScope.launch {
         indonesiaBreakingNews.postValue(Resource.Loading())
-        val response = newsRepository.getIndonesiaBreakingNews(countryCode, indonesiaBreakingNewsPage)
-        indonesiaBreakingNews.postValue(handleIndonesiaBreakingNewsResponse(response))
+        val response1 = newsRepository.getIndonesiaBreakingNews(countryCode, indonesiaBreakingNewsPage)
+        indonesiaBreakingNews.postValue(handleIndonesiaBreakingNewsResponse(response1))
     }
 
-    private fun handleIndonesiaBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
-         if(response.isSuccessful) {
-             response.body()?.let {resultResponse ->
+    fun getLuarNegeriBreakingNews(countryCode: String) = viewModelScope.launch {
+        internasionalBreakingNews.postValue(Resource.Loading())
+        val response2 = newsRepository.getLuarNegeriBreakingNews(countryCode, internasionalBreakingNewsPage)
+        internasionalBreakingNews.postValue(handleInternasionalBreakingNewsResponse(response2))
+    }
+
+    private fun handleIndonesiaBreakingNewsResponse(response1: Response<NewsResponse>) : Resource<NewsResponse> {
+         if(response1.isSuccessful) {
+             response1.body()?.let {resultResponse ->
                  return Resource.Success(resultResponse)
              }
          }
-        return Resource.Error(response.message())
+        return Resource.Error(response1.message())
+    }
+
+    private fun handleInternasionalBreakingNewsResponse(response2: Response<NewsResponse>) : Resource<NewsResponse> {
+        if(response2.isSuccessful) {
+            response2.body()?.let {resultResponse ->
+                return Resource.Success(resultResponse)
+            }
+        }
+        return Resource.Error(response2.message())
     }
 }
