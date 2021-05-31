@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.kumber.R
 import com.project.kumber.Resource
@@ -25,6 +26,16 @@ class InternationalNewsFragment : Fragment(R.layout.fragment_news) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_internationalNewsFragment_to_newsDetailFragment,
+                bundle
+            )
+        }
 
         viewModel.internasionalBreakingNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
@@ -61,7 +72,6 @@ class InternationalNewsFragment : Fragment(R.layout.fragment_news) {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
-
     }
 
     override fun onResume() {
