@@ -23,10 +23,10 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as MainActivity).viewModel
-        val news = args.news
+        val article = args.article
         webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(news.url!!)
+            loadUrl(article.url!!)
         }
     }
 }
