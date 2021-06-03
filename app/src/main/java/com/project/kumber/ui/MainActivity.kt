@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
         viewModel  = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, HomeFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.newsNavHostFragment, HomeFragment()).commit()
 
         val homeFragment = HomeFragment();
     }
