@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.project.kumber.Resource
+import com.project.kumber.model.Article
 import com.project.kumber.model.NewsResponse
 import com.project.kumber.repository.NewsRepository
 import kotlinx.coroutines.launch
@@ -70,5 +71,15 @@ class NewsViewModel (
             }
         }
         return Resource.Error(response.message())
+    }
+
+    fun saveArticle(article: Article) = viewModelScope.launch {
+        newsRepository.update(article)
+    }
+
+    fun getSavedNews() = newsRepository.getSavedNews()
+
+    fun deleteArticle(article: Article) = viewModelScope.launch {
+        newsRepository.deleteArticle(article)
     }
 }

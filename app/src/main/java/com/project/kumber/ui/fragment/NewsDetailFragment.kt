@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.project.kumber.R
 import com.project.kumber.model.Article
 import com.project.kumber.ui.MainActivity
@@ -27,6 +28,11 @@ class NewsDetailFragment : Fragment(R.layout.fragment_news_detail) {
         webView.apply {
             webViewClient = WebViewClient()
             loadUrl(article.url!!)
+        }
+
+        fab.setOnClickListener{
+            viewModel.saveArticle(article)
+            Snackbar.make(view, "You've successfully saved a news!", Snackbar.LENGTH_SHORT).show()
         }
     }
 }
