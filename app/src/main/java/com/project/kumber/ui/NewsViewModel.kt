@@ -16,12 +16,15 @@ class NewsViewModel (
 {
     val indonesiaBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var indonesiaBreakingNewsPage = 1
+    var indonesiaBreakingNewsResponse: NewsResponse? = null
 
     val internasionalBreakingNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var internasionalBreakingNewsPage = 1
+    var internasionalBreakingNewsResponse: NewsResponse? = null
 
     val searchNews: MutableLiveData<Resource<NewsResponse>> = MutableLiveData()
     var searchNewsPage = 1
+    var searchNewsResponse: NewsResponse? = null
 
     init {
         getIndonesiaBreakingNews("id")
@@ -49,7 +52,15 @@ class NewsViewModel (
     private fun handleIndonesiaBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
          if(response.isSuccessful) {
              response.body()?.let {resultResponse ->
-                 return Resource.Success(resultResponse)
+                 indonesiaBreakingNewsPage++
+                 if(indonesiaBreakingNewsResponse == null) {
+                     indonesiaBreakingNewsResponse = resultResponse
+                 } else {
+                     val oldArticles = indonesiaBreakingNewsResponse?.articles
+                     val newArticles = resultResponse.articles
+                     oldArticles?.addAll(newArticles)
+                 }
+                 return Resource.Success(indonesiaBreakingNewsResponse ?: resultResponse)
              }
          }
         return Resource.Error(response.message())
@@ -58,7 +69,15 @@ class NewsViewModel (
     private fun handleInternasionalBreakingNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
         if(response.isSuccessful) {
             response.body()?.let {resultResponse ->
-                return Resource.Success(resultResponse)
+                internasionalBreakingNewsPage++
+                if(internasionalBreakingNewsResponse == null) {
+                    internasionalBreakingNewsResponse = resultResponse
+                } else {
+                    val oldArticles = internasionalBreakingNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(internasionalBreakingNewsResponse ?: resultResponse)
             }
         }
         return Resource.Error(response.message())
@@ -67,7 +86,15 @@ class NewsViewModel (
     private fun handleSearchNewsResponse(response: Response<NewsResponse>) : Resource<NewsResponse> {
         if(response.isSuccessful) {
             response.body()?.let {resultResponse ->
-                return Resource.Success(resultResponse)
+                searchNewsPage++
+                if(searchNewsResponse == null) {
+                    searchNewsResponse = resultResponse
+                } else {
+                    val oldArticles = searchNewsResponse?.articles
+                    val newArticles = resultResponse.articles
+                    oldArticles?.addAll(newArticles)
+                }
+                return Resource.Success(searchNewsResponse ?: resultResponse)
             }
         }
         return Resource.Error(response.message())
