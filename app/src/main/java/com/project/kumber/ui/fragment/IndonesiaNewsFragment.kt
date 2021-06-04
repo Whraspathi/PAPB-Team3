@@ -80,6 +80,6 @@ class IndonesiaNewsFragment : Fragment(R.layout.fragment_news) {
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(activity, "This is the newest News", Toast.LENGTH_LONG).show()
+        Toast.makeText(activity, "This is the latest news", Toast.LENGTH_LONG).show()
     }
 }
