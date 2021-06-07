@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#D3D3D3"
+    android:background="#e4f0ff"
     android:weightSum="10"
     tools:context=".ui.fragment.HomeFragment">
 
@@ -16,12 +16,23 @@
 
         <TextView
             android:id="@+id/textGrid"
-            android:text="News Source"
-            android:textSize="34sp"
-            android:textColor="#000"
+            android:text="KumBer"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textGrid"
+            android:layout_centerInParent="true"
+            android:text="Kumpulan Berita"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            />
     </RelativeLayout>
 
     <GridLayout
@@ -46,7 +57,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#8ebefe">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -60,7 +72,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/newsicon"
+                    android:src="@drawable/icon_news"
                     android:layout_marginBottom="10dp"
                     />
 
@@ -69,7 +81,7 @@
                     android:text="Indonesia News"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -87,7 +99,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#8ebefe">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -101,7 +114,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/newsicon"
+                    android:src="@drawable/icon_news"
                     android:layout_marginBottom="10dp"
                     />
 
@@ -110,7 +123,7 @@
                     android:text="International News"
                     android:textColor="#000"
                     android:layout_gravity="center_horizontal"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -129,7 +142,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#8ebefe">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -143,7 +157,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/newsicon"
+                    android:src="@drawable/icon_save"
                     android:layout_marginBottom="10dp"
                     />
 
@@ -152,7 +166,7 @@
                     android:text="Saved News"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -170,7 +184,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:cardElevation="8dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#8ebefe">
 
             <LinearLayout
                 android:layout_gravity="center_horizontal|center_vertical"
@@ -184,7 +199,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/newsicon"
+                    android:src="@drawable/icon_search"
                     android:layout_marginBottom="10dp"
                     />
 
@@ -193,7 +208,7 @@
                     android:text="Search News"
                     android:layout_gravity="center_horizontal"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
